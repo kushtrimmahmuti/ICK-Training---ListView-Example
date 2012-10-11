@@ -6,6 +6,7 @@ public class Person {
 	String description;
 	
 	public Person(){}
+
 	
 	public Person(String name, String lastname, String description) {
 		super();

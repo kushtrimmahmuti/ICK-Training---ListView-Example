@@ -22,66 +22,13 @@ public class MainActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        lista.add(new Person("Hajdar", "Dushi", "Haker"));
-        
+        lista.add(new Person("Xhemile", "Gashi", "Amvise"));
+        lista.add(new Person("Fatime", "Paqarrizi", "Magje Master"));
+        lista.add(new Person("Fatmir", "Ballabani", "Instruktor i autobusave"));
+        lista.add(new Person("Xhelal", "Durmishi", "Asistent i bageristit"));
+        lista.add(new Person("Karabashedin", "Aliahmeti", "Picamen"));
+        lista.add(new Person("Xhimret", "Durmishi", "Kirurg"));        
+       
         setListAdapter(new PersonCustomAdapter());
     }
 
@@ -100,8 +47,9 @@ public class MainActivity extends ListActivity {
 		
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
-			ViewHolder holder;
+			ViewHolder holder = null;
 			View row = convertView;
+			final int _position = position;
 			
 			if (row == null) {
 				LayoutInflater inflater = getLayoutInflater();
@@ -115,14 +63,17 @@ public class MainActivity extends ListActivity {
 			holder.getName().setText(lista.get(position).getName() + lista.get(position).getLastname());
 			holder.getDescription().setText(lista.get(position).getDescription());
 			
+			row.setBackgroundResource(R.drawable.selected_state);
+			
 			row.setOnClickListener(new View.OnClickListener() {
 				
 				@Override
 				public void onClick(View v) {
-					Toast.makeText(MainActivity.this, "e kemi sust shtypen", Toast.LENGTH_LONG).show();
+					Toast.makeText(MainActivity.this, lista.get(_position).getName(), Toast.LENGTH_LONG).show();
 					
 				}
 			});
+						
 			
 			return row;
 		}
